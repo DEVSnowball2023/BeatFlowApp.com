@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spotify Redirect</title>
+</head>
+<body>
+    <h1>Spotify Redirect Page</h1>
+    <p id="status">Waiting for Spotify...</p>
+
+    <script>
+        // Get code from URL
+        const params = new URLSearchParams(window.location.search);
+        const code = params.get('code');
+
+        if (code) {
+            document.getElementById('status').innerText = 'Received Spotify code!';
+            console.log('Spotify code:', code);
+
+            // Here you could send it to your server for token exchange
+            // fetch('YOUR_BACKEND_URL', { method: 'POST', body: JSON.stringify({ code }) })
+        } else {
+            document.getElementById('status').innerText = 'No code in URL';
+        }
+    </script>
+</body>
+</html>
